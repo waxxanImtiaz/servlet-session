@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>httpformservlet</servlet-name>
+        <servlet-class>imtiaz.io.SessionFormController</servlet-class>
+    </servlet>
+
+    <filter>
+        <filter-name>formrequestfilter</filter-name>
+        <filter-class>imtiaz.io.filter.FormRequestFilter</filter-class>
+    </filter>
+    <servlet>
+        <servlet-name>formservlet</servlet-name>
+        <servlet-class>imtiaz.io.FormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>formcontrollerservlet</servlet-name>
+        <servlet-class>imtiaz.io.FormControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>registration</servlet-name>
+        <servlet-class>imtiaz.io.RegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>formservlet</servlet-name>
+        <url-pattern>/welcome</url-pattern>
+        <url-pattern>/go</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>registration</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>formcontrollerservlet</servlet-name>
+        <url-pattern>/formcontroller</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>httpformservlet</servlet-name>
+        <url-pattern>/submit</url-pattern>
+    </servlet-mapping>
+
+    <filter-mapping>
+        <filter-name>formrequestfilter</filter-name>
+        <url-pattern>/register</url-pattern>
+    </filter-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>
